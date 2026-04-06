@@ -1,19 +1,16 @@
-Feature: Login na plataforma
+Funcionalidade: Login na plataforma
 
   Como cliente da EBAC-SHOP
   Quero fazer login
   Para visualizar meus pedidos
 
-  Background:
-    Given que estou na tela de login
+  Contexto:
+    Dado que estou na tela de login
 
-  Scenario: Login com dados válidos
-    When insiro usuário válido
-    And insiro senha válida
-    And clico no botão "login"
-    Then sou direcionado para a tela de checkout
+  Cenário: Login com dados válidos
+    Quando insiro usuário e senha válidos e clico no botão "login"
+    Então sou direcionado para a tela de checkout
 
-  Scenario: Login com dados inválidos
-    When insiro usuário ou senha inválidos
-    And clico no botão "login"
-    Then vejo a mensagem "Usuário ou senha inválidos"
+  Cenário: Login com dados inválidos
+    Quando insiro usuário ou senha inválidos e clico no botão "login"
+    Então vejo a mensagem "Usuário ou senha inválidos"
