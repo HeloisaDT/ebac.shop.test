@@ -1,25 +1,21 @@
-Feature: Cadastro no checkout
+Funcionalidade: Cadastro no checkout
 
   Como cliente da EBAC-SHOP
   Quero concluir meu cadastro
   Para finalizar minha compra
 
-  Background:
-    Given que estou na tela de cadastro do checkout
+  Contexto:
+    Dado que estou na tela de cadastro do checkout
 
-  Scenario: Cadastro com sucesso
-    When preencho todos os campos obrigatórios
-    And clico no botão "finalizar cadastro"
-    Then o cadastro deve ser realizado com sucesso
+  Cenário: Cadastro com sucesso
+    Quando preencho todos os campos obrigatórios e clico em "finalizar cadastro"
+    Então o cadastro deve ser realizado com sucesso
 
-  Scenario Outline: Validar preenchimento do cadastro
-    When preencho o nome "<nome>"
-    And preencho o email "<email>"
-    And preencho o endereço "<endereco>"
-    And clico no botão "finalizar cadastro"
-    Then o sistema deve exibir "<mensagem>"
+  Esquema do Cenário: Validar preenchimento do cadastro
+    Quando preencho o nome "<nome>", email "<email>", endereço "<endereco>" e clico no botão "finalizar cadastro"
+    Então o sistema deve exibir "<mensagem>"
 
-    Examples:
+    Exemplos:
       | nome   | email             | endereco | mensagem                             |
       | João   | joao@email.com    | Rua A    | Cadastro realizado com sucesso       |
       | Maria  | mariaemail.com    | Rua B    | Email inválido                       |
