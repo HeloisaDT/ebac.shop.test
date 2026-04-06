@@ -1,26 +1,24 @@
-Feature: Configurar produto
+Funcionalidade: Configurar produto
 
   Como cliente da EBAC-SHOP
   Quero configurar meu produto
   Para inserir no carrinho
 
-  Background:
-    Given que estou na página de produto
+  Contexto:
+    Dado que estou na página de produto
 
-  Scenario: Selecionar produto com sucesso
-    When seleciono a cor "azul"
-    And seleciono o tamanho "M"
-    And seleciono a quantidade "2"
-    Then o produto deve ser adicionado ao carrinho
+  Cenário: Selecionar produto com sucesso
+    Quando seleciono cor, tamanho e quantidade
+    Então o produto deve ser adicionado ao carrinho
 
-  Scenario: Campos obrigatórios não preenchidos
-    When não seleciono cor, tamanho ou quantidade
-    Then deve exibir mensagem de erro de campos obrigatórios
+  Cenário: Campos obrigatórios não preenchidos
+    Quando não seleciono cor, tamanho ou quantidade
+    Então deve exibir mensagem de erro de campos obrigatórios
 
-  Scenario: Limite máximo de produtos
-    When seleciono uma quantidade maior que 10
-    Then deve exibir mensagem "Quantidade máxima permitida é 10"
+  Cenário: Limite máximo de produtos
+    Quando seleciono uma quantidade maior que 10
+    Então deve exibir mensagem "Quantidade máxima permitida é 10"
 
-  Scenario: Limpar seleção
-    When clico no botão "limpar"
-    Then o produto volta ao estado original
+  Cenário: Limpar seleção
+    Quando clico no botão "limpar"
+    Então o produto volta ao estado original
